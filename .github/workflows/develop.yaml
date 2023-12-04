@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
     #    branches:
     #      - develop
-    branches-ignore:
-      - main
+    branches:
+      - '*'
+    # Exclude main branch from manual triggering
+    paths-ignore:
+      - 'main'
 jobs:
   check-bats-version___:
     runs-on: ubuntu-latest
