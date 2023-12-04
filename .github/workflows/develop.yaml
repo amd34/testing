@@ -6,11 +6,8 @@ on:
     #      - develop
     branches:
       - '*'
-    # Exclude main branch from manual triggering
-    #    paths-ignore:
-    #      - 'main'
-    branches-ignore:
-      - main
+    paths-ignore:
+      - 'main'
 jobs:
   check-bats-version___:
     runs-on: ubuntu-latest
