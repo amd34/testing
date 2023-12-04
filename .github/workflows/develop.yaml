@@ -1,0 +1,17 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+jobs:
+  check-bats-version___:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: echo "develop branch workflow"
+      - run: cat README.md
+      - run: bats -v
+      - run: ls -a
+      - run: pwd
+
