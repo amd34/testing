@@ -2,14 +2,14 @@ name: testing-github-actions_develop
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
-    #    branches:
-    #      - develop
+    branches:
+      - develop
     #    branches:
     #      - '*'
     #    paths-ignore:
     #      - 'main'
-    inputs:
-      -$(ls)
+    #    inputs:
+    #      -$(ls)
 
 jobs:
   check-bats-version___:
