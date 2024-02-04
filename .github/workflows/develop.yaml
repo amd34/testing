@@ -4,10 +4,11 @@ on:
   workflow_dispatch:
     #    branches:
     #      - develop
-    branches:
-      - '*'
-    paths-ignore:
-      - 'main'
+    #    branches:
+    #      - '*'
+    #    paths-ignore:
+    #      - 'main'
+    - $(ls)
 jobs:
   check-bats-version___:
     runs-on: ubuntu-latest
