@@ -8,7 +8,9 @@ on:
     #      - '*'
     #    paths-ignore:
     #      - 'main'
-    - $(ls)
+    inputs:
+      -$(ls)
+
 jobs:
   check-bats-version___:
     runs-on: ubuntu-latest
