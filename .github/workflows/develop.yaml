@@ -2,28 +2,25 @@ name: testing-github-actions_develop
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
-    branches:
-      - develop
-    #    branches:
-    #      - '*'
-    #    paths-ignore:
-    #      - 'main'
-    #    inputs:
-    #      -$(ls)
+    inputs:
+      environment:
+        description: Select the environment
+      boolean:
+        description: True or False
+      choice:
+        description: Make a choice
 
 jobs:
-  check-bats-version___:
+  your_job_name:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: echo  $GITHUB_REF_NAME " branch workflow"
-      - run: printenv
-      - run: bats -v
-      - run: ls -a
-      - run: pwd
-      - run: export TESTING_GLOBAL_REPO_VAR=updated_variable_value
 
+    steps:
+    - name: Set up environment variables
+      run: echo "TESTING_GLOBAL_REPO_VAR=${{ env.TESTING_GLOBAL_REPO_VAR }}" >> $GITHUB_ENV
+
+    - name: Run the workflow
+      run: |
+        echo "Testing global repo var: ${{ env.TESTING_GLOBAL_REPO_VAR }}"
+        echo "Selected environment: ${{ github.event.inputs.environment }}"
+        echo "Boolean value: ${{ github.event.inputs.boolean }}"
+        echo "Choice: ${{ github.event.inputs.choice }}"
