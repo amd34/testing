@@ -25,4 +25,5 @@ jobs:
       - run: bats -v
       - run: ls -a
       - run: pwd
+      - run: export TESTING_GLOBAL_REPO_VAR=updated_variable_value
 
