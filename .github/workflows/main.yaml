@@ -2,9 +2,21 @@ name: testing-github-actions_main
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main  
+    inputs:
+      environment:
+        type: environment
+        description: Select the environment
+        options:
+        - ${{ env.TESTING_GLOBAL_REPO_VAR }}
+      boolean:
+        type: boolean
+        description: True or False
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - bar
+        - baz
 jobs:
   check-bats-version___:
     runs-on: ubuntu-latest
