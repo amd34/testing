@@ -1,21 +1,22 @@
 name: testing-github-actions_develop
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: environment
-        description: Select the environment
-      boolean:
-        type: boolean
-        description: True or False
-      choice:
-        type: choice
-        description: Make a choice
-        options:
-        - ${{ env.TESTING_GLOBAL_REPO_VAR }}
-        - bar
-        - baz
+ workflow_dispatch:
+   # Inputs the workflow accepts.
+   inputs:
+     version:
+       description: 'Package version to deployed'
+       required: true
+       type: choice
+       options:
+         $TESTING_GLOBAL_REPO_VAR
+     environment:
+       description: 'Target Environment'
+       required: true
+       type: choice
+       options:
+         - DEV
+         - PROD
 
 jobs:
   your_job_name:
