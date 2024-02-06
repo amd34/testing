@@ -33,12 +33,11 @@ jobs:
          $date >> README.md
          ls
          cat README.md
+         git add README.md
          git commit -m $(date +%s)
          git tag $(date +%s)
-         git config user.name github-actions
-         git config user.email github-actions@github.com
-         git add .
-         git commit -m "generated"
+         git config user.name amd34
+         git config user.email ahmed.naamane92@gmail.com
       - name: Push tag
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
