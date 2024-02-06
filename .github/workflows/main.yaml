@@ -1,11 +1,11 @@
-name: Release
+name: main
 
-on:
+on: 
   workflow_dispatch:
     inputs:
-      app:
-        description: "The app to release. The name should be the same as name in package.json"
+      logLevel:
+        description: 'Log level'     
         required: true
-      version:
-        description: "The version to release. The version should be the same as version in package.json. For example, 1.0.0"
-        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
