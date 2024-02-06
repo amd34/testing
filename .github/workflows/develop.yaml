@@ -19,10 +19,16 @@ on:
          - PROD
 
 jobs:
-  tagging:
-   uses: actions/checkout@v4
-   with:
-      sparse-checkout: |
-         README.md
-      sparse-checkout-cone-mode: false
-
+jobs:
+  run-on-ubuntu:
+    runs-on: ubuntu
+    steps:
+      - name: Checkout repository and generate file
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            README.md
+          sparse-checkout-cone-mode: false
+        run: |
+          date > generated.txt
+          ls
