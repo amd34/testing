@@ -22,6 +22,10 @@ jobs:
   file_update:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout on master
+        uses: actions/checkout@v4
+        with:
+          ref: master
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -30,5 +34,9 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Generate file
         run: |
-          date > generated.txt
+          date >> readme.md
           ls
+      - name: Create tag
+        run: git tag v1.0
+      - name: Push tag
+        run: git push origin v1.0
