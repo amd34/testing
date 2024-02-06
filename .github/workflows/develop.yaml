@@ -27,6 +27,8 @@ jobs:
         with:
           ref: develop
       - name: Create tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
          $date >> README.md
          ls
