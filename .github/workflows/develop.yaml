@@ -19,7 +19,7 @@ on:
          - PROD
 
 jobs:
-  run-on-ubuntu:
+  file_update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
