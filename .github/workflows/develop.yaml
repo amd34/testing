@@ -38,7 +38,7 @@ jobs:
           ls
           cat README.md
       - name: Create tag
-        run: git tag $(date)
+        run: git tag $(date +%s)
       - name: Push tag
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
