@@ -9,7 +9,7 @@ on:
        required: true
        type: choice
        options:
-         $TESTING_GLOBAL_REPO_VAR
+         - IMAGE
      environment:
        description: 'Target Environment'
        required: true
@@ -19,16 +19,10 @@ on:
          - PROD
 
 jobs:
-  your_job_name:
-    runs-on: ubuntu-latest
+  tagging:
+   uses: actions/checkout@v4
+   with:
+      sparse-checkout: |
+         README.md
+      sparse-checkout-cone-mode: false
 
-    steps:
-    - name: Set up environment variables
-      run: echo "TESTING_GLOBAL_REPO_VAR=${{ env.TESTING_GLOBAL_REPO_VAR }}" >> $GITHUB_ENV
-
-    - name: Run the workflow
-      run: |
-        echo "Testing global repo var: ${{ env.TESTING_GLOBAL_REPO_VAR }}"
-        echo "Selected environment: ${{ github.event.inputs.environment }}"
-        echo "Boolean value: ${{ github.event.inputs.boolean }}"
-        echo "Choice: ${{ github.event.inputs.choice }}"
