@@ -22,22 +22,12 @@ jobs:
   file_update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout on master
-        uses: actions/checkout@v4
-        with:
-          ref: develop
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            README.md
-          sparse-checkout-cone-mode: false
-
       - name: Create tag
         run: |
          date >> README.md
          ls
          cat README.md
+         git commit -m $(date +%s)
          git tag $(date +%s)
       - name: Push tag
         env:
