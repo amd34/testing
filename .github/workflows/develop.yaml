@@ -22,12 +22,13 @@ jobs:
   run-on-ubuntu:
     runs-on: ubuntu
     steps:
-      - name: Checkout repository and generate file
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
             README.md
           sparse-checkout-cone-mode: false
+      - name: Generate file
         run: |
           date > generated.txt
           ls
