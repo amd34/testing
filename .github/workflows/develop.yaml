@@ -19,7 +19,6 @@ on:
          - PROD
 
 jobs:
-jobs:
   run-on-ubuntu:
     runs-on: ubuntu
     steps:
