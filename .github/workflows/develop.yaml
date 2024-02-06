@@ -28,7 +28,7 @@ jobs:
           ref: develop
       - name: Create tag
         run: |
-         date >> README.md
+         $date >> README.md
          ls
          cat README.md
          git commit -m $(date +%s)
