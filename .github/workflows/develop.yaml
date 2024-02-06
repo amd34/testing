@@ -36,6 +36,7 @@ jobs:
         run: |
           date >> README.md
           ls
+          cat README.md
       - name: Create tag
         run: git tag v1.0
       - name: Push tag
