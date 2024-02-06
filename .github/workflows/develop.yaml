@@ -30,8 +30,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-         $date >> README.md
-         ls
+         echo $date >> README.md
+         ls -a
          cat README.md
          git config user.name amd34
          git config user.email ahmed.naamane92@gmail.com
