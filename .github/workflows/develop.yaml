@@ -9,7 +9,7 @@ on:
        required: true
        type: choice
        options:
-         - IMAGE
+         - IMAGE VERSION
      environment:
        description: 'Target Environment'
        required: true
