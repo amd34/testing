@@ -32,13 +32,13 @@ jobs:
           sparse-checkout: |
             README.md
           sparse-checkout-cone-mode: false
-      - name: Generate file
-        run: |
-          date >> README.md
-          ls
-          cat README.md
+
       - name: Create tag
-        run: git tag $(date +%s)
+        run: |
+         date >> README.md
+         ls
+         cat README.md
+         git tag $(date +%s)
       - name: Push tag
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
