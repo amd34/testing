@@ -1,22 +1,11 @@
-name: testing-github-actions_main
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: Release
+
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main  
-jobs:
-  check-bats-version___:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: echo "main branch workflow"
-      - run: cat README.md
-      - run: bats -v
-      - run: ls -a
-      - run: pwd
-
+    inputs:
+      app:
+        description: "The app to release. The name should be the same as name in package.json"
+        required: true
+      version:
+        description: "The version to release. The version should be the same as version in package.json. For example, 1.0.0"
+        required: true
