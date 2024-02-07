@@ -42,6 +42,7 @@ jobs:
           echo "::endgroup::"
           #echo "::command::echo 'This command was executed'"
           #echo "::set-env name=MY_VARIABLE::my_value"
+          echo "::notice::Informational message with warning: **${TESTING} warnings**"
 
 
 #      - name: Push tag
