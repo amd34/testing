@@ -27,8 +27,10 @@ jobs:
           echo "::debug::Set the Octocat variable"
           echo "::debug::Set testing"
 
-      - name: Print Message
-        run: echo "::warning::This is a warning message"
+      - name: Print Annotations
+        run: |
+          echo "::warning file=warnings.txt::10 warnings"
+          echo "::error file=build-maven::Error: Path Validation Error: Path(s) specified in the action for caching do(es) not exist, hence no cache is being saved."
 
       - name: Push tag
         env:
