@@ -37,7 +37,7 @@ jobs:
           echo "Content within the group"
           echo "::endgroup::"
           echo "::command::echo 'This command was executed'"
-          echo "::set-env name=MY_VARIABLE::my_value"
+          #echo "::set-env name=MY_VARIABLE::my_value"
 
 
 #      - name: Push tag
