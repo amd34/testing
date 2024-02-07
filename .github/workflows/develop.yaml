@@ -29,8 +29,9 @@ jobs:
 
       - name: Print Annotations
         run: |
-          echo "::warning file=warnings.txt::10 warnings"
-          echo "::error file=build-maven::Error: Path Validation Error: Path(s) specified in the action for caching do(es) not exist, hence no cache is being saved."
+          echo "::debug testing debug"
+          echo "::warning testing warning"
+          echo "::error testing error"
 
       - name: Push tag
         env:
