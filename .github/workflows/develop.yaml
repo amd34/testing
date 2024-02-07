@@ -35,7 +35,7 @@ jobs:
           echo "::debug::${TESTING} debug"
           echo "::warning::${TESTING} warnings"
           echo "::error::${TESTING} Error"
-          echo "::notice::Informational message"
+          echo "::notice::##[notice] **Informational message with bold style**"
           echo "::group::Group Name"
           echo "Content within the group"
           echo "::endgroup::"
