@@ -30,16 +30,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-         echo $date >> README.md
-         ls -a
-         cat README.md
-         git config user.name amd34
-         git config user.email ahmed.naamane92@gmail.com
-         git add README.md
-         git commit -m $(date +%s)
-         git tag $(date +%s)
-
+          echo $date >> README.md
+          ls -a
+          cat README.md
+          git config user.name amd34
+          git config user.email ahmed.naamane92@gmail.com
+          git add README.md
+          git commit -m "$(date +%s)"
+          git tag "$(date +%s)"
       - name: Push tag
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: git push origin $(date +%s)
+        run: git push origin "$(date +%s)"
