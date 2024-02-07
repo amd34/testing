@@ -26,12 +26,9 @@ jobs:
           git tag "$(date +%s)"
           echo "::debug::Set the Octocat variable"
           echo "::debug::Set testing"
-      - name: Print Selected Tag
-        run: |
-          echo "Selected Tag: testing annotation"
-        # Set the output of this step as an environment variable
-        env:
-          TAG_ANNOTATION: "testing annotation"
+
+      - name: Print Message
+        run: echo "::warning::This is a warning message"
 
       - name: Push tag
         env:
