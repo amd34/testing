@@ -29,6 +29,9 @@ jobs:
           git add README.md
           git commit -m "$(date +%s)"
           git tag "$(date +%s)"
+          echo "::debug::Set the Octocat variable"
+          echo "::debug::Set testing"
+
       - name: Push tag
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
