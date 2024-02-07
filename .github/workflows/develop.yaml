@@ -1,8 +1,13 @@
 name: testing-github-actions_develop
 run-name: ${{ github.actor }} is learning GitHub Actions
+
 on:
   workflow_dispatch:
-
+    inputs:
+      TESTING:
+        description: 'Testing input'
+        required: true
+        default: 'default value'
 
 jobs:
   file_update:
@@ -29,7 +34,7 @@ jobs:
 
       - name: Print Annotations
         env:
-          TESTING: testing
+          TESTING: ${{ github.event.inputs.TESTING }}
         run: |
           echo "::debug::Debug message"
           echo "::debug::${TESTING} debug"
