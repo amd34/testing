@@ -2,12 +2,7 @@ name: testing-github-actions_develop
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Select Tag'
-        required: true
-        type: string
-        options: ${{ steps.get_tags.outputs.tags }}
+
 
 jobs:
   file_update:
