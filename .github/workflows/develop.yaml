@@ -1,12 +1,12 @@
 name: testing-github-actions_develop
 run-name: ${{ github.actor }} is learning GitHub Actions
+
 on:
   workflow_dispatch:
     inputs:
       image_tag:
         description: 'Image to Deploy:'
         required: true
-#        default: 'default value'
       promote_after_deploy:
         description: 'Promote after deploy?'
         type: boolean
@@ -22,22 +22,24 @@ jobs:
           TESTING: ${{ github.event.inputs.image_tag }}
         run: |
           echo "::warning::${TESTING} warnings"
+
   test2:
     runs-on: ubuntu-latest
     needs: test1
-    if: ${{ github.event.inputs.promote_after_deploy }} == true
+    if: ${{ github.event.inputs.promote_after_deploy == 'true' }}
     steps:
       - name: Print Annotations 2
         env:
-          TESTING: ${{ github.event.image_tag }} 
+          TESTING: ${{ github.event.inputs.image_tag }} 
         run: |
           echo "::notice::${TESTING} Informational message"
+
   test3:
     runs-on: ubuntu-latest
     needs: test2
     steps:
-      - name: Print Annotations 2
+      - name: Print Annotations 3
         env:
-          TESTING: ${{ github.event.image_tag }} 
+          TESTING: ${{ github.event.inputs.image_tag }} 
         run: |
-          echo "::error::${TESTING} Informational message"
+          echo "::error::${TESTING} Error message"
