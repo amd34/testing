@@ -29,9 +29,9 @@ jobs:
 
       - name: Print Annotations
         run: |
-          echo "::debug testing debug"
-          echo "::warning testing warning"
-          echo "::error testing error"
+          echo "::debug testing:: debug"
+          echo "::warning testing:: warnings"
+          echo "::error testing:: Error: Path Validation Error"
 
       - name: Push tag
         env:
