@@ -26,7 +26,7 @@ jobs:
   test2:
     runs-on: ubuntu-latest
     needs: test1
-    if: ${{ github.event.inputs.promote_after_deploy }}
+    if: ${{ github.event.inputs.promote_after_deploy }} == true
     steps:
       - name: Print Annotations 2
         env:
@@ -36,7 +36,6 @@ jobs:
   test3:
     runs-on: ubuntu-latest
     needs: test2
-    if: ${{ github.event.inputs.promote_after_deploy }}
     steps:
       - name: Print Annotations 2
         env:
