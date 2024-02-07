@@ -1,6 +1,3 @@
-name: testing-github-actions_develop
-run-name: ${{ github.actor }} is learning GitHub Actions
-
 on:
   workflow_dispatch:
     inputs:
@@ -42,4 +39,3 @@ jobs:
           TESTING: ${{ github.event.image_tag }} 
         run: |
           echo "::error::${TESTING} Informational message"
-
