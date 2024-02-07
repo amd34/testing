@@ -7,7 +7,7 @@ on:
         description: 'Select Tag'
         required: true
         type: string
-        options: ${{ join(',', steps.get_tags.outputs.tags) }}
+        options: ${{ steps.get_tags.outputs.tags }}
 
 jobs:
   file_update:
