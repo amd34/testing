@@ -31,11 +31,16 @@ jobs:
         env:
           TESTING: testing
         run: |
-          echo "::debug::${TESTING} debug"
-          echo "::warning::${TESTING} warnings ttttttttttttttttttttttt"
-          echo "::error::${TESTING} Error: Path Validation Error"
+          echo "::debug::Debug message"
+          echo "::notice::Informational message"
+          echo "::group::Group Name"
+          echo "Content within the group"
+          echo "::endgroup::"
+          echo "::command::echo 'This command was executed'"
+          echo "::set-env name=MY_VARIABLE::my_value"
 
-      - name: Push tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: git push origin "$(date +%s)"
+
+#      - name: Push tag
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+#        run: git push origin "$(date +%s)"
