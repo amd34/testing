@@ -32,11 +32,14 @@ jobs:
           TESTING: testing
         run: |
           echo "::debug::Debug message"
+          echo "::debug::${TESTING} debug"
+          echo "::warning::${TESTING} warnings"
+          echo "::error::${TESTING} Error"
           echo "::notice::Informational message"
           echo "::group::Group Name"
           echo "Content within the group"
           echo "::endgroup::"
-          echo "::command::echo 'This command was executed'"
+          #echo "::command::echo 'This command was executed'"
           #echo "::set-env name=MY_VARIABLE::my_value"
 
 
