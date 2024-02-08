@@ -1,5 +1,5 @@
 name: testing-github-actions_develop
-run-name: ${{ github.actor }} is learning GitHub Actions $(date +"%Y-%m-%d-%H-%M")
+run-name: ${{ github.actor }} is learning GitHub Actions ${{ github.date }}
 
 on:
   workflow_dispatch:
